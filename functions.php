@@ -15,11 +15,22 @@ function generateCharacters(array $characters){
   return $arrayCharacters;
 }
 
-function generatePassword(int $nCharacters, array $checkbox){
+function generatePassword(int $nCharacters, array $checkbox, $noRepetitions){
   $output="";
   $characters = generateCharacters($checkbox);
-  while(strlen($output) < $nCharacters){
-    $output .= $characters[rand(0, count($characters)-1)];
+  $stop = false;
+  while(strlen($output) < $nCharacters && $stop == false){
+    $newCharacter = $characters[rand(0, count($characters)-1)];
+    if($noRepetitions){
+      if(strlen($output) == count($characters)){
+        $stop = true;
+      }
+      if(!str_contains($output, $newCharacter)){
+        $output .= $newCharacter;
+      }
+    } else {
+      $output .= $newCharacter;
+    }
   }
   return $output;
 }

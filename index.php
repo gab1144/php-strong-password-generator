@@ -5,7 +5,7 @@
   $password = "";
 
   if(!empty($data) && $data['lengthPsw'] !="" && isset($data['characters'])){
-    $password = generatePassword($data['lengthPsw'], $data['characters']);
+    $password = generatePassword($data['lengthPsw'], $data['characters'], $data['repetitions']);
     session_start();
     $_SESSION['password'] = $password;
     header('Location: ./generatedPassword.php');
@@ -30,11 +30,26 @@
   <div class="row">
     <div class="col">
       <form action="./index.php" method="GET" class="d-flex">
+
+        <div class="form-check p-2  pe-5">
+          <input class="form-check-input" type="radio" name="repetitions" id="no-repetitions" value="0" checked>
+          <label class="form-check-label" for="no-repetitions">
+            Con ripetizioni
+          </label>
+        </div>
+        
+        <div class="form-check  p-2">
+          <input class="form-check-input" type="radio" name="repetitions" id="with-repetitions" value="1">
+          <label class="form-check-label" for="with-repetitions">
+            Senza ripetizioni
+          </label>
+        </div>
+
         <div class="mb-3  p-2">
           <label for="stars">
             Numero caratteri: 
           </label>
-          <input name="lengthPsw" type="number" min="8" max="32">
+          <input name="lengthPsw" type="number" min="8" max="32" value="8">
         </div>
 
         <div class="mb-3 d-flex p-2">
@@ -62,13 +77,6 @@
       </form>
     </div>
   </div>
-  <?php if($password != ""): ?> 
-  <div class="row">
-    <div class="col">
-      <h1><?php echo $password; ?></h1>
-    </div>
-  </div>
-  <?php endif;  ?>
 </div>
 
 </body>
