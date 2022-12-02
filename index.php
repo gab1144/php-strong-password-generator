@@ -4,9 +4,7 @@
   $data = $_GET;
   $password = "";
 
-
-
-  if(!empty($data)){
+  if(!empty($data) && $data['lengthPsw'] !="" && isset($data['characters'])){
     $password = generatePassword($data['lengthPsw'], $data['characters']);
     session_start();
     $_SESSION['password'] = $password;
