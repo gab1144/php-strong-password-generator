@@ -7,7 +7,10 @@
 
 
   if(!empty($data)){
-    $password = generatePassword($data['lengthPsw']);
+    $password = generatePassword($data['lengthPsw']);  
+    session_start();
+    $_SESSION['password'] = $password;
+    header('Location: ./generatedPassword.php');
   }
 ?>
 
