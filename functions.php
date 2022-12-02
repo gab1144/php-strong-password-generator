@@ -17,7 +17,6 @@ function generateCharacters(array $characters){
 
 function generatePassword(int $nCharacters, array $checkbox){
   $output="";
-  var_dump("entratp");
   $characters = generateCharacters($checkbox);
   while(strlen($output) < $nCharacters){
     $output .= $characters[rand(0, count($characters)-1)];
