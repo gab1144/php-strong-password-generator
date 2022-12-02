@@ -14,12 +14,12 @@
 
 <body>
 
-    <div class="container mb-3 pt-3">
+<div class="container fluid d-flex align-items-center justify-content-center" style="height: 100vh; width 100%">
         <div class="row">
             <div class="col-12">
-                <span>Password generata: <?php echo $_SESSION['password'] ?></span>
+                <div class="alert alert-primary">Password generata: <?php echo $_SESSION['password'] ?></div>
             </div>
-            <div class="col-12">
+            <div class="col-12 d-flex p-2 d-flex justify-content-center">
                 <a href="./index.php" class="btn btn-info">Torna alla homepage</a>
             </div>
         </div>

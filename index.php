@@ -25,11 +25,13 @@
 </head>
 <body>
 
-<div class="container">
-
-  <div class="row">
+<div class="container fluid d-flex align-items-center justify-content-center" style="height: 100vh; width 100%">
+  <div class="row bg-light p-5 shadow rounded">
     <div class="col">
-      <form action="./index.php" method="GET" class="d-flex">
+
+      <h1>STRONG PASSWORD GENERATOR</h1>
+      <h3>Genera una password sicura tra 8 e 32 caratteri</h3>
+      <form action="./index.php" method="GET" class="">
 
         <div class="form-check p-2  pe-5">
           <input class="form-check-input" type="radio" name="repetitions" id="no-repetitions" value="0" checked>
@@ -46,16 +48,11 @@
         </div>
 
         <div class="mb-3  p-2">
-          <label for="stars">
+          <label for="lengthPsw">
             Numero caratteri: 
           </label>
           <input name="lengthPsw" type="number" min="8" max="32" value="8">
         </div>
-
-        <div class="mb-3 d-flex p-2">
-          <button class="btn btn-primary me-5" type="submit">Genera</button>
-        </div>
-
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="letters" id="letters" name="characters[]">
           <label class="form-check-label" for="letters">
@@ -73,6 +70,9 @@
           <label class="form-check-label" for="symbols">
             Simboli
           </label>
+        </div>
+        <div class="mt-3 d-flex p-2 d-flex justify-content-center">
+          <button class="btn btn-primary" type="submit">Genera</button>
         </div>
       </form>
     </div>
