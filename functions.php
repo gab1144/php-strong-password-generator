@@ -22,11 +22,11 @@ function generatePassword(int $nCharacters, array $checkbox, $noRepetitions){
   while(strlen($output) < $nCharacters && $stop == false){
     $newCharacter = $characters[rand(0, count($characters)-1)];
     if($noRepetitions){
-      if(strlen($output) == count($characters)){
-        $stop = true;
-      }
       if(!str_contains($output, $newCharacter)){
         $output .= $newCharacter;
+      }
+      if(strlen($output) == count($characters)){
+        $stop = true;
       }
     } else {
       $output .= $newCharacter;
