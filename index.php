@@ -7,7 +7,7 @@
 
 
   if(!empty($data)){
-    $password = generatePassword($data['lengthPsw']);  
+    $password = generatePassword($data['lengthPsw'], $data['characters']);
     session_start();
     $_SESSION['password'] = $password;
     header('Location: ./generatedPassword.php');
@@ -43,6 +43,24 @@
           <button class="btn btn-primary me-5" type="submit">Genera</button>
         </div>
 
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="letters" id="letters" name="characters[]">
+          <label class="form-check-label" for="letters">
+            Lettere
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="numbers" id="numbers" name="characters[]">
+          <label class="form-check-label" for="numbers">
+            Numeri
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="symbols" id="symbols" name="characters[]">
+          <label class="form-check-label" for="symbols">
+            Simboli
+          </label>
+        </div>
       </form>
     </div>
   </div>
